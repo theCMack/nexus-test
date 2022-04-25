@@ -17,6 +17,6 @@ jobs:
         password: ${{ secrets.nxrm_password }}
         format: raw
         repository: npm-stengel
-        coordinates: directory=nexus-repo-github-action-test
+        coordinates: version=1.0.0
         assets: filename=my-test-file.tgz
         filename: ./my-test-file.tgz
