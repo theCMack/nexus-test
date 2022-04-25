@@ -21,4 +21,4 @@ jobs:
         repository: npm-stengel
         coordinates: directory=nexus-repo-github-action-test
         assets: filename=my-test-file.tgz
-        filename: ./my-test-file.tgz
+        filename: ../../my-test-file.tgz
