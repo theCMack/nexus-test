@@ -15,6 +15,7 @@ jobs:
         serverUrl: https://artifacts.unchained-capital.us/
         username: ${{ secrets.nxrm_user }}
         password: ${{ secrets.nxrm_password }}
-        format: raw
+        format: npm
         repository: npm-stengel
+        coordianates: asset=my-test-file.tgz
         filename: ./my-test-file.tgz
