@@ -17,6 +17,6 @@ jobs:
         password: ${{ secrets.nxrm_password }}
         format: raw
         repository: npm-stengel
-        coordinates: version=1.0.0
+        coordinates: directory=testdir
         assets: filename=my-test-file.tgz
         filename: ./my-test-file.tgz
