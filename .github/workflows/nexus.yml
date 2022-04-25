@@ -18,4 +18,5 @@ jobs:
         format: npm
         repository: npm-stengel
         coordinates: asset=my-test-file.tgz
+        assets: name=my-test-file.tgz
         filename: ./my-test-file.tgz
