@@ -1,0 +1,24 @@
+name: Nexus Repository
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Nexus Repo Publish
+      uses: sonatype-nexus-community/nexus-repo-github-action@master
+      with:
+        serverUrl: https://artifacts.unchained-capital.us/
+        username: ${{ secrets.nxrm_user }}
+        password: ${{ secrets.nxrm_password }}
+        format: raw
+        repository: npm-stengel
+        coordinates: directory=nexus-repo-github-action-test
+        assets: filename=my-test-file.tgz
+        filename: ./my-test-file.tgz
