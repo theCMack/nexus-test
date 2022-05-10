@@ -4,6 +4,7 @@
   "description": "Generate one or more common English words",
   "publishConfig": {
     "registry": "https://artifacts.unchained-capital.us/repository/npm-stengel/"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/test.js"
