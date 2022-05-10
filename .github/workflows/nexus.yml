@@ -26,7 +26,7 @@ jobs:
       - name: Increment version
         run: |
           npm version ${{ github.event.label.name }} -m "Version bump: %s"
-      - run: |
-          npm publish
+      - name: Publish Release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
+        run: npm publish
