@@ -22,17 +22,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
         run: |
-          cat /home/runner/work/_temp/.npmrc
           npm install
       - name: Increment version
         run: |
           npm version ${{ github.event.label.name }} -m "Version bump: %s"
       - name: Publish Release
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
         run: |
-          cat /home/runner/work/_temp/.npmrc
+          cat .npmrc
+          cp .npmrc_main .npmrc
+          cat .npmrc
           npm publish --registry 'https://artifacts.unchained-capital.us/repository/npm-stengel/' 
