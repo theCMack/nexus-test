@@ -1,6 +1,6 @@
 {
   "name": "random-words",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "description": "Generate one or more common English words",
   "main": "index.js",
   "scripts": {
