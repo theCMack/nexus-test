@@ -2,9 +2,9 @@
   "name": "random-words",
   "version": "1.1.26",
   "description": "Generate one or more common English words",
-  "publishConfig": {
-    "registry": "https://artifacts.unchained-capital.us/repository/npm-stengel/"
-  },
+#  "publishConfig": {
+#    "registry": "https://artifacts.unchained-capital.us/repository/npm-stengel/"
+#  },
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/test.js"
