@@ -30,4 +30,4 @@ jobs:
       - name: Publish Release
         run: |
           cp .npmrc_main /home/runner/work/_temp/.npmrc
-          npm publish --registry 'https://artifacts.unchained-capital.us/repository/npm-stengel/' 
+          npm publish
