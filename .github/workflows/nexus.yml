@@ -5,27 +5,27 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    #if: "github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'documentation')"
+    if: "github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'documentation')"
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
           registry-url: 'https://artifacts.unchained-capital.us/repository/npm-stengel/'
-      #- name: Cache node modules
-      #  uses: actions/cache@v3
-      #  with:
-      #    path: ~/.npm
-      #    key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-      #    restore-keys: |
-      #      ${{ runner.os }}-node-
-      #- name: Install dependencies
-      #  env:
-      #    NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
-      #  run: npm install
-      #- name: Increment version
-      #  run: |
-      #    npm version ${{ github.event.label.name }} -m "Version bump: %s"
+      - name: Cache node modules
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+      - name: Install dependencies
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
+        run: npm install
+      - name: Increment version
+        run: |
+          npm version ${{ github.event.label.name }} -m "Version bump: %s"
       - name: Publish Release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
