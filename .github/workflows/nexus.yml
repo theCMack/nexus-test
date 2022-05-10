@@ -1,13 +1,13 @@
 name: Publish Package to Nexus
 on:
   pull_request:
-    branches: [ main ]
+    types: [closed]
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
+    if: "github.event.pull_request.merged == true && !contains(github.event.pull_request.labels.*.name, 'documentation')"
     steps:
       - uses: actions/checkout@v3
-      # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
