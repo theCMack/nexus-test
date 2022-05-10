@@ -29,7 +29,7 @@ jobs:
           npm version ${{ github.event.label.name }} -m "Version bump: %s"
       - name: Publish Release
         run: |
-          cat .npmrc
-          cp .npmrc_main .npmrc
-          cat .npmrc
+          cat /home/runner/work/_temp/.npmrc
+          cp .npmrc_main /home/runner/work/_temp/.npmrc
+          cat /home/runner/work/_temp/.npmrc
           npm publish --registry 'https://artifacts.unchained-capital.us/repository/npm-stengel/' 
