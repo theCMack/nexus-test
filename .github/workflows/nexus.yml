@@ -19,13 +19,13 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Install dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
-        run: npm install
-      - name: Increment version
-        run: |
-          npm version ${{ github.event.label.name }} -m "Version bump: %s"
+      #- name: Install dependencies
+      #  env:
+      #    NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
+      #  run: npm install
+      #- name: Increment version
+      #  run: |
+      #    npm version ${{ github.event.label.name }} -m "Version bump: %s"
       - name: Publish Release
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
