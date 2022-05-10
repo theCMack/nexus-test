@@ -1,6 +1,6 @@
 {
   "name": "random-words",
-  "version": "1.1.23",
+  "version": "1.1.24",
   "description": "Generate one or more common English words",
   "publishConfig": {
     "registry": "https://artifacts.unchained-capital.us/repository/npm-stengel/"
