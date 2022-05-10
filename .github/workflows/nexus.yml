@@ -27,4 +27,4 @@ jobs:
         run: |
           npm version ${{ github.event.label.name }} -m "Version bump: %s"
       - name: Publish Release
-        run: npm publish
+        run: npm publish --registry 'https://artifacts.unchained-capital.us/repository/npm-stengel/' 
