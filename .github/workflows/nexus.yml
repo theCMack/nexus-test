@@ -20,8 +20,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install dependencies
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NEXUS_TOKEN }}
         run: npm install
       - name: Increment version
         run: |
