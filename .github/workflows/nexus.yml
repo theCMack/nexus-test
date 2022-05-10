@@ -22,9 +22,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Install dependencies
-        run: npm install
+        run: |
+          echo "Secret1 == ${{ secrets.NEXUS_TOKEN }}"
+          npm install
       - name: Increment version
         run: |
           npm version ${{ github.event.label.name }} -m "Version bump: %s"
       - name: Publish Release
-        run: npm publish --registry 'https://artifacts.unchained-capital.us/repository/npm-stengel/' 
+        run: |
+          echo "Secret2 == ${{ secrets.NEXUS_TOKEN }}"
+          npm publish --registry 'https://artifacts.unchained-capital.us/repository/npm-stengel/' 
