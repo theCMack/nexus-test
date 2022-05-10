@@ -1,10 +1,7 @@
 {
   "name": "random-words",
-  "version": "1.1.13",
+  "version": "1.1.4",
   "description": "Generate one or more common English words",
-  "publishConfig": {
-    "registry": "https://artifacts.unchained-capital.us/repository/npm-stengel/"
-  },
   "main": "index.js",
   "scripts": {
     "test": "mocha tests/test.js"
@@ -27,4 +24,3 @@
   "devDependencies": {
     "mocha": "^9.1.3"
   }
-}
