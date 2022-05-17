@@ -15,51 +15,33 @@ pipeline {
 
   stages {
 
-    stage('use group repo') {
+    stage('build dependencies') {
       when {
         not {
           anyOf {
             branch 'master';
-            branch 'release*';
-            expression { return env.CHANGE_ID }
+	        branch 'release*';
           }
         }
       }
       steps {
-        sh '''
-        cp .npmrc_group .npmrc
-        echo "registry=https://artifacts.unchained-capital.us/repository/npm-stengel-group/" >> .npmrc
-        '''
-      }
-    }
-
-    stage('Use trusted repo') {
-      when {
-        anyOf {
-          branch 'master';
-          branch 'release*';
-          expression { return env.CHANGE_ID }
+        // On the master branch, bump the patch version, and push
+        // changes and tags out to github
+        withNPM(npmrcConfig: 'stengel-npmrc') {
+          sh '''
+            npm install
+          '''
         }
       }
-      steps {
-          sh '''
-          cp .npmrc_group .npmrc
-          echo "registry=https://artifacts.unchained-capital.us/repository/npm-stengel-group/" >> .npmrc
-          '''
-      }
     }
 
-    stage('build dependencies') { 
-      steps {
-        sh 'npm install' 
-      }
-    }
-
-    stage('Publish Package') {
+    stage('publish package') {
       when {
-        anyOf {
-          branch 'master';
-	      branch 'release*';
+        not {
+          anyOf {
+            branch 'master';
+	        branch 'release*';
+          }
         }
       }
       steps {
