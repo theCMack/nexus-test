@@ -17,11 +17,9 @@ pipeline {
 
     stage('build dependencies') {
       when {
-        not {
-          anyOf {
-            branch 'master';
-	        branch 'release*';
-          }
+        anyOf {
+          branch 'master';
+          branch 'release*';
         }
       }
       steps {
@@ -37,11 +35,9 @@ pipeline {
 
     stage('publish package') {
       when {
-        not {
-          anyOf {
-            branch 'master';
-	        branch 'release*';
-          }
+        anyOf {
+          branch 'master';
+          branch 'release*';
         }
       }
       steps {
