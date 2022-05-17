@@ -1,1 +1,9 @@
-# this is my jenkinsfile
+pipeline {
+    stages {
+        stage('Build') { 
+            steps {
+                sh 'npm install' 
+            }
+        }
+    }
+}
