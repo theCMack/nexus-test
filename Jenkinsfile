@@ -18,12 +18,12 @@ pipeline {
     stage('build dependencies') {
       when {
         anyOf {
-          branch 'master';
+          branch 'main';
           branch 'release*';
         }
       }
       steps {
-        // On the master branch, bump the patch version, and push
+        // On the main branch, bump the patch version, and push
         // changes and tags out to github
         withNPM(npmrcConfig: 'stengel-npmrc') {
           sh '''
@@ -36,12 +36,12 @@ pipeline {
     stage('publish package') {
       when {
         anyOf {
-          branch 'master';
+          branch 'main';
           branch 'release*';
         }
       }
       steps {
-        // On the master branch, bump the patch version, and push
+        // On the main branch, bump the patch version, and push
         // changes and tags out to github
         withNPM(npmrcConfig: 'stengel-npmrc') {
           sh '''
