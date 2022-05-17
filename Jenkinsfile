@@ -25,7 +25,7 @@ pipeline {
       steps {
         // On the main branch, bump the patch version, and push
         // changes and tags out to github
-        withNPM(npmrcConfig: 'stengel-npmrc') {
+        withNPM(npmrcConfig: 'stengel-group-npmrc') {
           sh '''
             npm install
           '''
